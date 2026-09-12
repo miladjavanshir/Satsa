@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>کتاب دیجیتال ۹۵ صفحه‌ای | ۶۰ تم و دیزاین اختصاصی </title>
+  
+  <style>
+    /* -------------------------------------------------------------------------
+       Web Fonts & External CDNs
+       ------------------------------------------------------------------------- */
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css');
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css');
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/samim-font@v4.0.5/dist/font-face.css');
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/tanha-font@v0.9.2/dist/font-face.css');
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font/style.css');
+    
+    @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo&family=Changa&family=Caveat&family=Cinzel&family=Comfortaa&family=Courgette&family=Dancing+Script&family=El+Messiri&family=Fira+Sans&family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=Kalam&family=Katibeh&family=Lalezar&family=Lateef&family=Lato&family=Lobster&family=Markazi+Text&family=Merriweather&family=Montserrat&family=Noto+Kufi+Arabic&family=Noto+Naskh+Arabic&family=Noto+Sans+Arabic&family=Nunito&family=Open+Sans&family=Oswald&family=Pacifico&family=Permanent+Marker&family=Playfair+Display&family=Poppins&family=Quicksand&family=Raleway&family=Reem+Kufi&family=Roboto&family=Rubik&family=Satisfy&family=Scheherazade+New&family=Tajawal&family=Ubuntu&family=Work+Sans&display=swap');
+
+    /* -------------------------------------------------------------------------
+       CSSDA Award Level Design Tokens & Root Theme
+       ------------------------------------------------------------------------- */
+    :root {
+      --bg-space: #06080e;
+      --bg-surface: rgba(18, 22, 34, 0.78);
+      --bg-surface-elevated: rgba(28, 34, 52, 0.85);
+      --card-bg: #ffffff;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary-accent: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.35);
+      --accent-cyan: #06b6d4;
+      --accent-pink: #ec4899;
+      --accent-red: #ef4444;
+      --border-glass: rgba(255, 255, 255, 0.12);
+      --border-light: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+      --shadow-award: 0 24px 60px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      --font-family: 'Vazirmatn', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    /* -------------------------------------------------------------------------
+       Atmospheric Ambient Background
+       ------------------------------------------------------------------------- */
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-space);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 45%),
+        radial-gradient(at 50% 100%, rgba(236, 72, 153, 0.12) 0px, transparent 55%),
+        radial-gradient(circle at 50% 30%, rgba(30, 41, 59, 0.75) 0%, #06080e 100%);
+      background-attachment: fixed;
+      font-family: var(--font-family);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: clamp(10px, 2.5vw, 20px) clamp(8px, 2vw, 14px) clamp(30px, 5vw, 60px);
+      color: var(--text-main);
+      direction: rtl;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      width: clamp(250px, 40vw, 450px);
+      height: clamp(250px, 40vw, 450px);
+      top: -100px;
+      right: 15%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+      filter: blur(60px);
+      z-index: -1;
+      pointer-events: none;
+      animation: floatAura 18s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      width: clamp(200px, 35vw, 400px);
+      height: clamp(200px, 35vw, 400px);
+      bottom: 50px;
+      left: 10%;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(6, 182, 212, 0) 70%);
+      filter: blur(70px);
+      z-index: -1;
+      pointer-events: none;
+      animation: floatAura 22s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatAura {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(35px) scale(1.1); }
+      100% { transform: translateY(-30px) scale(0.95); }
+    }
+
+    /* -------------------------------------------------------------------------
+       Top Action Bar
+       ------------------------------------------------------------------------- */
+    .top-action-bar {
+      width: 100%;
+      max-width: 1140px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-lg);
+      padding: clamp(10px, 2vw, 14px) clamp(12px, 2.5vw, 20px);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .brand-title {
+      font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.02em;
+      line-height: 1.5;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-badge::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 6px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+      flex: 1 1 240px;
+      max-width: 420px;
+    }
+
+    .search-input {
+      padding: 7px 12px;
+      border-radius: var(--radius-full);
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 0.86rem;
+      width: 100%;
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      color: #f8fafc;
+    }
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .btn-search {
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.38);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-search:hover {
+      background: linear-gradient(135deg, #4f46e5, #4338ca);
+      transform: translateY(-1px);
+    }
+
+    .auth-cluster {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-auth {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .btn-register {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+    .btn-register:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-login {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .btn-login:hover {
+      background: rgba(255, 255, 255, 0.16);
+      transform: translateY(-2px);
+    }
+
+    .btn-logout {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+    }
+    .btn-logout:hover {
+      transform: translateY(-2px);
+    }
+
+    .user-badge {
+      background: rgba(99, 102, 241, 0.15);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #e0e7ff;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* -------------------------------------------------------------------------
+       Floating Dock Controls Bar
+       ------------------------------------------------------------------------- */
+    .book-controls {
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 18px);
+      border-radius: var(--radius-lg);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      width: 100%;
+      max-width: 1140px;
+      flex-wrap: wrap;
+    }
+
+    .nav-buttons-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-weight: 700;
+      font-family: inherit;
+      font-size: 0.84rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      min-height: 38px;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      border-color: #818cf8;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      border-color: transparent;
+    }
+
+    .btn-lang-toggle {
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+    }
+    .btn-lang-toggle:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+    }
+
+    .page-indicator {
+      font-weight: 800;
+      color: #38bdf8;
+      font-size: 0.88rem;
+      text-align: center;
+      letter-spacing: -0.01em;
+      text-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      white-space: nowrap;
+      min-height: 38px;
+    }
+
+    .page-number-input {
+      width: 44px;
+      padding: 3px 4px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      color: #38bdf8;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: center;
+      outline: none;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .page-number-input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+      background: #0f172a;
+    }
+
+    .btn-jump-page {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-jump-page:hover {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      transform: translateY(-1px);
+    }
+
+    .page-design-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+    }
+
+    .page-design-picker label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      white-space: nowrap;
+    }
+
+    .page-design-picker select {
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-family: inherit;
+      font-size: 0.82rem;
+      outline: none;
+      cursor: pointer;
+      background: #0f172a;
+      color: #f1f5f9;
+      max-width: 100%;
+      min-height: 34px;
+    }
+
+    /* -------------------------------------------------------------------------
+       Main Viewport & Container
+       ------------------------------------------------------------------------- */
+    .book-viewport {
+      width: 100%;
+      max-width: 1140px;
+    }
+
+    .book-container {
+      position: relative;
+      width: 100%;
+      min-height: 700px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-award);
+      padding: clamp(16px, 4vw, 36px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-sizing: border-box;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .page-number-tag {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 800;
+      color: #4f46e5;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(79, 70, 229, 0.08);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    .read-only-locked .toolbar,
+    .read-only-locked .universal-toolbar,
+    .read-only-locked .floating-format-toolbar,
+    .read-only-locked .image-upload-section,
+    .read-only-locked .table-ribbon,
+    .read-only-locked .table-controls-footer,
+    .read-only-locked .btn-sphere-save,
+    .read-only-locked .btn-save-inline,
+    .read-only-locked .remove-img-btn {
+      pointer-events: none !important;
+      opacity: 0.5 !important;
+      filter: grayscale(0.6);
+      display: none !important;
+    }
+
+    .read-only-locked [contenteditable="true"] {
+      contenteditable: false !important;
+      outline: none !important;
+      background-color: rgba(0, 0, 0, 0.02) !important;
+      cursor: default !important;
+    }
+
+    /* -------------------------------------------------------------------------
+       Image Upload Section
+       ------------------------------------------------------------------------- */
+    .image-upload-section {
+      margin-bottom: 24px;
+      padding: clamp(12px, 3vw, 18px);
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      text-align: center;
+      background: #f8fafc;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+    .image-upload-section:hover {
+      border-color: #6366f1;
+      background: #f1f5f9;
+    }
+
+    .upload-trigger-label {
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #4f46e5;
+      background: #ffffff;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.12);
+      border: 1px solid #e0e7ff;
+      font-size: 0.88rem;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .upload-trigger-label:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(79, 70, 229, 0.2);
+    }
+
+    .image-preview-container {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .image-preview-wrapper {
+      position: relative;
+      display: inline-block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      background: #f8fafc;
+    }
+
+    .image-preview-wrapper img {
+      max-width: clamp(90px, 20vw, 130px);
+      max-height: clamp(80px, 18vw, 120px);
+      display: block;
+      object-fit: cover;
+    }
+
+    .remove-img-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #ef4444;
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 6px rgba(239, 68, 68, 0.5);
+    }
+
+    /* -------------------------------------------------------------------------
+       Universal & Per-Box Typography Toolbar
+       ------------------------------------------------------------------------- */
+    .editor-section {
+      margin-bottom: 26px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .toolbar {
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      padding: 8px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      color: #334155;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .toolbar-title-tag {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #4f46e5;
+      background: #e0e7ff;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      margin-left: 4px;
+    }
+
+    .toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-left: 1px solid #cbd5e1;
+      padding-left: 8px;
+      margin-left: 4px;
+      flex-wrap: wrap;
+    }
+    .toolbar-group:last-child {
+      border-left: none;
+    }
+
+    .toolbar select,
+    .toolbar input[type="color"],
+    .toolbar button {
+      padding: 5px 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-family: inherit;
+      color: #1e293b;
+      outline: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .toolbar button:hover,
+    .toolbar select:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+    }
+
+    .toolbar input[type="color"] {
+      padding: 2px 4px;
+      width: 36px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .bullet-selector {
+      font-weight: 700;
+      color: #0284c7 !important;
+      border-color: #bae6fd !important;
+      background: #f0f9ff !important;
+    }
+    .bullet-selector:hover {
+      background: #e0f2fe !important;
+    }
+
+    .editor-container {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .rich-textbox {
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      min-height: 180px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-top: none;
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      outline: none;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.8;
+      color: #1e293b;
+      padding: clamp(12px, 3vw, 16px);
+      box-sizing: border-box !important;
+      word-wrap: break-word !important;
+      overflow-wrap: anywhere !important;
+      word-break: break-word !important;
+      overflow-x: hidden !important;
+      overflow-y: auto;
+      white-space: normal !important;
+    }
+
+    .rich-textbox *,
+    .editor-box *,
+    [contenteditable="true"] * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      overflow-wrap: anywhere !important;
+      word-break: break-word !important;
+      white-space: normal !important;
+    }
+
+    .rich-textbox table,
+    .editor-box table,
+    [contenteditable="true"] table {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+      display: table !important;
+    }
+
+    .rich-textbox img,
+    .editor-box img,
+    [contenteditable="true"] img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    .action-buttons-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 105px;
+      margin-top: 6px;
+    }
+
+    .btn-action {
+      padding: 9px 16px;
+      border: none;
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+      font-family: inherit;
+      font-size: 0.88rem;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 38px;
+    }
+    .btn-save-inline {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    /* -------------------------------------------------------------------------
+       Table Section
+       ------------------------------------------------------------------------- */
+    .table-section {
+      background: #ffffff;
+      padding: clamp(12px, 3vw, 20px);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      margin-bottom: 26px;
+      border: 1px solid #e2e8f0;
+      width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .table-custom-header {
+      text-align: center;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      font-weight: 900;
+      color: #dc2626 !important;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(220, 38, 38, 0.03));
+      border-radius: var(--radius-md);
+      border: 1.5px solid rgba(239, 68, 68, 0.3);
+      letter-spacing: -0.02em;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.08);
+      word-break: break-word;
+    }
+
+    .resizable-table-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+      min-height: 140px;
+      border: 1px solid #cbd5e1;
+      padding: clamp(8px, 2vw, 12px);
+      background: #ffffff;
+      border-radius: var(--radius-md);
+    }
+
+    table.custom-table {
+      width: 100%;
+      min-width: 480px;
+      border-collapse: collapse;
+      background: #ffffff;
+      direction: rtl;
+      table-layout: auto;
+      font-family: inherit;
+    }
+
+    table.custom-table th,
+    table.custom-table td {
+      border: 1px solid #cbd5e1;
+      padding: clamp(6px, 1.5vw, 10px);
+      text-align: center;
+      outline: none;
+      color: #1e293b;
+      word-break: break-word;
+      font-size: clamp(0.8rem, 1.5vw, 0.88rem);
+    }
+
+    table.custom-table th {
+      background-color: #f1f5f9;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    .table-controls-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 16px);
+      margin-top: 14px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-md);
+    }
+
+    .btn-table-cmd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      color: #ffffff;
+      cursor: pointer;
+      white-space: nowrap;
+      min-height: 36px;
+    }
+    .btn-cmd-clear-content { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+    .btn-cmd-delete-table { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+    .btn-cmd-create-table { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+
+    .btn-sphere-save {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at 32% 32%, #34d399, #059669 60%, #064e3b 100%);
+      box-shadow: inset -3px -3px 8px rgba(0, 0, 0, 0.5), inset 3px 3px 8px rgba(255, 255, 255, 0.6), 0 10px 24px rgba(16, 185, 129, 0.45);
+      font-family: inherit;
+      flex-shrink: 0;
+    }
+
+    /* -------------------------------------------------------------------------
+       Bottom Section & Form Panels
+       ------------------------------------------------------------------------- */
+    .bottom-section {
+      display: flex;
+      gap: clamp(14px, 3vw, 20px);
+      background: #f8fafc;
+      padding: clamp(14px, 3vw, 20px);
+      border-radius: var(--radius-lg);
+      border: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .bottom-panel {
+      flex: 1 1 320px;
+      min-width: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bottom-panel h3 {
+      color: #dc2626;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-weight: 800;
+      border-bottom: 2px solid #fee2e2;
+      padding-bottom: 8px;
+    }
+
+    .editor-box {
+      min-height: 44px;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      background: #ffffff;
+      outline: none;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #1e293b;
+      word-break: break-word !important;
+      overflow-wrap: anywhere !important;
+      white-space: normal !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+      overflow-y: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .editor-box:focus,
+    .rich-textbox:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .form-field label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    /* -------------------------------------------------------------------------
+       Smart Floating Contextual Toolbar
+       ------------------------------------------------------------------------- */
+    .floating-format-toolbar {
+      position: fixed;
+      bottom: 24px;
+      right: 50%;
+      transform: translateX(50%) translateY(120%);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid #6366f1;
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6), 0 0 20px rgba(99, 102, 241, 0.35);
+      z-index: 9998;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-width: 95vw;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .floating-format-toolbar.visible {
+      transform: translateX(50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .floating-format-toolbar select,
+    .floating-format-toolbar input[type="color"],
+    .floating-format-toolbar button {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      padding: 4px 8px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      min-height: 28px;
+    }
+
+    .floating-format-toolbar select option {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    .floating-active-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-left: 6px;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      padding-left: 8px;
+    }
+
+    /* -------------------------------------------------------------------------
+       Modals & Tree Diagram Styling
+       ------------------------------------------------------------------------- */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(6, 8, 14, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(8px, 2vw, 16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #0f172a;
+      width: 100%;
+      max-width: 440px;
+      max-height: calc(100vh - 30px);
+      overflow-y: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      padding: clamp(14px, 3vw, 22px);
+      position: relative;
+      direction: rtl;
+      color: #f8fafc;
+      margin: auto;
+      box-sizing: border-box;
+    }
+
+    .search-modal-card {
+      max-width: 900px !important;
+      width: 96%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at 50% 0%, #1e293b 0%, #090d16 100%);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(99, 102, 241, 0.2);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      gap: 10px;
+    }
+
+    .modal-header h2 {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: #38bdf8;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-close-modal {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 0.95rem;
+      color: #94a3b8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .btn-close-modal:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    /* Interactive Tree Visual Container */
+    .tree-visual-container {
+      width: 100%;
+      min-height: 360px;
+      max-height: 60vh;
+      overflow-y: auto;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: clamp(8px, 2vw, 16px);
+      position: relative;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .tree-svg-root {
+      width: 100%;
+      min-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .tree-leaf-node {
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+      transform-origin: center;
+    }
+
+    .tree-leaf-node:hover {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8));
+    }
+
+    .tree-leaf-node.company-leaf:hover {
+      filter: drop-shadow(0 0 12px rgba(52, 211, 153, 0.9));
+    }
+
+    .tree-leaf-text {
+      font-family: var(--font-family);
+      font-weight: 800;
+      fill: #ffffff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .tree-branch-label {
+      font-family: var(--font-family);
+      font-size: 14px;
+      font-weight: 800;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    }
+
+    /* Presets */
+    .book-container.design-1 { background: #ffffff; color: #1e293b; border-color: #cbd5e1; }
+    .book-container.design-2 { background: #0f172a; color: #f8fafc; border-color: #334155; }
+    .book-container.design-3 { background: #fffbf0; color: #451a03; border-color: #f59e0b; }
+    .book-container.design-4 { background: #f0fdf4; color: #064e3b; border-color: #86efac; }
+    .book-container.design-5 { background: #09090b; color: #00ffcc; border-color: #ff007f; }
+
+    /* -------------------------------------------------------------------------
+       Responsive Media Queries
+       ------------------------------------------------------------------------- */
+    @media (max-width: 992px) {
+      .top-action-bar { flex-direction: column; align-items: stretch; }
+      .brand-title { justify-content: center; text-align: center; }
+      .search-group { max-width: 100%; width: 100%; }
+      .auth-cluster { justify-content: center; }
+      .book-controls { flex-direction: column; align-items: stretch; }
+      .nav-buttons-group { justify-content: center; }
+      .page-design-picker { justify-content: center; width: 100%; }
+      .page-design-picker select { flex: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .editor-container { flex-direction: column; }
+      .action-buttons-vertical { flex-direction: row; width: 100%; margin-top: 8px; }
+      .action-buttons-vertical .btn-action { flex: 1; }
+      .toolbar { gap: 4px; padding: 6px; }
+      .toolbar-group { padding-left: 4px; margin-left: 2px; }
+      .table-controls-footer { flex-direction: column; align-items: stretch; }
+      .table-controls-footer > div { display: flex; flex-wrap: wrap; width: 100%; }
+      .table-controls-footer > div .btn-table-cmd { flex: 1 1 calc(50% - 8px); }
+      .btn-sphere-save { width: 100%; height: 48px; border-radius: var(--radius-sm); margin-top: 8px; }
+      .floating-format-toolbar { bottom: 10px; padding: 5px 10px; }
+    }
+  </style>
+</head>
+<body class="read-only-locked">
+
+  <!-- Top Action Bar -->
+  <header class="top-action-bar">
+    <div class="brand-title">
+      <span class="brand-badge">ستصا</span>
+      📖 کتاب دیجیتالی توانمندی‌های اعضای انجمن سازندگان تجهیزات صنعتی ایران
+    </div>
+
+    <div class="search-group">
+      <input type="text" id="searchInput" class="search-input" placeholder="جستجوی تجهیز در سراسر کتاب..." onkeyup="if(event.key==='Enter') searchBookContent()">
+      <button class="btn-search" onclick="searchBookContent()">🔍 جستجو</button>
+    </div>
+
+    <div class="auth-cluster">
+      <div id="userBadge" class="user-badge" style="display: none;">
+        👤 کاربر: <span id="userNameDisplay">...</span>
+      </div>
+      <button id="registerBtn" class="btn-auth btn-register" onclick="openRegisterModal()">📝 ثبت‌نام</button>
+      <button id="loginBtn" class="btn-auth btn-login" onclick="openLoginModal()">🔑 ورود</button>
+      <button id="logoutBtn" class="btn-auth btn-logout" onclick="handleLogout()" style="display: none;">🚪 خروج</button>
+    </div>
+  </header>
+
+  <!-- Modern Floating Dock Controls -->
+  <div class="book-controls">
+    <div class="nav-buttons-group">
+      <button class="nav-btn" id="nextBtn" onclick="navigatePage(1)">صفحه بعدی →</button>
+      
+      <div class="page-indicator" id="pageIndicator">
+        <span>صفحه</span>
+        <input type="text" id="pageNumberInput" class="page-number-input" value="۱" inputmode="numeric" onfocus="this.select()" onkeydown="if(event.key==='Enter') goToEnteredPage()">
+        <span>از <span id="pageTotalDisplay">۹۵</span></span>
+        <button type="button" class="btn-jump-page" onclick="goToEnteredPage()">برو</button>
+      </div>
+
+      <button class="nav-btn" id="prevBtn" onclick="navigatePage(-1)">← صفحه قبلی</button>
+
+      <!-- Language Status & Switch Button -->
+      <button type="button" id="langSwitchBtn" class="nav-btn btn-lang-toggle" onclick="toggleTypingLanguage()" title="تغییر وضعیت زبان تایپ اعداد (کلید میانبر سیستم: Alt + Shift)">
+        🌐 زبان تایپ: <span id="currentLangLabel" style="color: #38bdf8; font-weight: 800;">فارسی (۱۲۳)</span>
+      </button>
+    </div>
+    
+    <div class="page-design-picker">
+      <label for="pageDesignSelect">🎨 سبک و دیزاین اختصاصی صفحه:</label>
+      <select id="pageDesignSelect" onchange="handlePageDesignChange(this.value)">
+        <option value="design-1">۱. کلاسیک سپید مینیمال</option>
+        <option value="design-2">۲. تاریک مدرن (Dark Slate)</option>
+        <option value="design-3">۳. طلایی سلطنتی پرستیژ</option>
+        <option value="design-4">۴. زمردی ارگانیک و مهندسی</option>
+        <option value="design-5">۵. نئون سایبرپانک</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Book Viewport -->
+  <main class="book-viewport">
+    <div class="book-container design-1" id="mainBookContainer">
+      
+      <header class="page-header">
+        <span class="page-number-tag" id="headerPageNum">صفحه ۱</span>
+      </header>
+
+      <section class="image-upload-section">
+        <label for="imageUploader" class="upload-trigger-label">
+          📷 بارگذاری تصاویر و مستندات گرافیکی
+        </label>
+        <input type="file" id="imageUploader" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+        <div class="image-preview-container" id="imagePreviewContainer"></div>
+      </section>
+
+      <!-- Main Rich Textbox Section -->
+      <section class="editor-section">
+        <div class="toolbar" data-target="mainRichEditor">
+          <span class="toolbar-title-tag">✏️ ویرایشگر اصلی</span>
+          
+          <!-- Font Family -->
+          <div class="toolbar-group">
+            <select class="font-name-select" onchange="applyFont(this.value)" title="انتخاب قلم (Font)">
+              <option value="'Vazirmatn', sans-serif">وزیرمتن</option>
+              <option value="'Shabnam', sans-serif">شبنم</option>
+              <option value="'Sahel', sans-serif">ساحل</option>
+              <option value="'Samim', sans-serif">صمیم</option>
+              <option value="'Tanha', sans-serif">تنها</option>
+              <option value="'IranNastaliq', cursive">ایران نستعلیق</option>
+              <option value="'Lalezar', cursive">لاله‌زار</option>
+              <option value="'Katibeh', cursive">کتیبه</option>
+              <option value="'Amiri', serif">امیری</option>
+              <option value="'Tahoma', sans-serif">تاهوما</option>
+              <option value="'Arial', sans-serif">آریال</option>
+              <option value="'Inter', sans-serif">Inter</option>
+              <option value="'Poppins', sans-serif">Poppins</option>
+            </select>
+
+            <!-- Font Size -->
+            <select class="font-size-select" onchange="applyCustomFontSize(this.value)" title="اندازه قلم (Font Size)"></select>
+          </div>
+
+          <!-- Font Color -->
+          <div class="toolbar-group">
+            <label style="font-size:0.75rem; font-weight:700;">رنگ:</label>
+            <input type="color" onchange="applyTextColor(this.value)" value="#1e293b" title="رنگ قلم (Font Color)">
+          </div>
+
+          <!-- Font Styles -->
+          <div class="toolbar-group">
+            <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('bold')" title="درشت (Bold)"><b>B</b></button>
+            <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('italic')" title="مورب (Italic)"><i>I</i></button>
+            <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('underline')" title="خط زیرین (Underline)"><u>U</u></button>
+            <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('strikeThrough')" title="خط‌خورده (Strike)"><s>S</s></button>
+          </div>
+
+          <!-- Text Alignments -->
+          <div class="toolbar-group">
+            <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyRight')" title="راست‌چین (Align Right)">➡️</button>
+            <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyCenter')" title="وسط‌چین (Align Center)">↔️</button>
+            <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyLeft')" title="چپ‌چین (Align Left)">⬅️</button>
+          </div>
+
+          <!-- 15 Types of Bullets -->
+          <div class="toolbar-group">
+            <select class="bullet-selector" onchange="applyBulletType(this.value); this.value='';" title="۱۵ نوع بالت عددی و شکلی">
+              <option value="" disabled selected>📋 ۱۵ نوع بالت عددی و شکلی...</option>
+              <optgroup label="🔢 بالت‌های عددی و ترتیبی (۷ نوع)">
+                <option value="num-fa">۱. عدد فارسی (۱، ۲، ۳...)</option>
+                <option value="num-en">2. عدد انگلیسی (1, 2, 3...)</option>
+                <option value="alpha-fa">۳. الفبای فارسی (الف، ب، ج...)</option>
+                <option value="alpha-en-lower">4. حروف انگلیسی کوچک (a, b, c...)</option>
+                <option value="alpha-en-upper">5. حروف انگلیسی بزرگ (A, B, C...)</option>
+                <option value="roman-upper">6. اعداد رومی (I, II, III...)</option>
+                <option value="circled-num">۷. اعداد دایره‌ای (①، ②، ③...)</option>
+              </optgroup>
+              <optgroup label="🎨 بالت‌های شکلی و گرافیکی (۸ نوع)">
+                <option value="shape-disc">۸. دایره توپر کلاسیک (•)</option>
+                <option value="shape-circle">۹. دایره توخالی / حلقه (○)</option>
+                <option value="shape-square">۱۰. مربع توپر هندسی (■)</option>
+                <option value="shape-diamond">۱۱. الماس / لوزی توپر (◆)</option>
+                <option value="shape-check">۱۲. تیک تایید (✓)</option>
+                <option value="shape-arrow">۱۳. پیکان نشانگر (➔)</option>
+                <option value="shape-star">۱۴. ستاره توپر (★)</option>
+                <option value="shape-floret">۱۵. گلبرگ لوزی اسلیمی (❖)</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div class="editor-container">
+          <div id="mainRichEditor" class="rich-textbox" contenteditable="false"></div>
+          <div class="action-buttons-vertical">
+            <button class="btn-action btn-save-inline" onclick="saveCurrentPageData()">💾 ذخیره</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advanced Table Section -->
+      <section class="table-section">
+        <h2 class="table-custom-header">اهمّ محصولات تولید شده / فعّالیت تخصّصی</h2>
+        
+        <div class="resizable-table-container">
+          <table class="custom-table tbl-theme-classic" id="industrialTable">
+            <thead>
+              <tr>
+                <th>عنوان تجهیز / فعّالیت</th>
+                <th>رفرنس‌ها</th>
+                <th>کاربرد در صنایع</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>تجهیز / فعالیت نمونه ۱</td>
+                <td>مرجع / استاندارد ۱</td>
+                <td>صنایع نفت و گاز</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-controls-footer">
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn-table-cmd btn-cmd-create-table" onclick="createNewTable()">📊 جدول جدید</button>
+            <button class="btn-table-cmd btn-cmd-clear-content" onclick="clearTableContent()">🗑️ پاک‌سازی</button>
+            <button class="btn-table-cmd btn-cmd-delete-table" onclick="deleteTable()">❌ حذف جدول</button>
+          </div>
+
+          <button class="btn-sphere-save" onclick="saveCurrentPageData()">ذخیره<br>تغییرات</button>
+        </div>
+      </section>
+
+      <!-- Bottom Section -->
+      <section class="bottom-section">
+        <!-- Certificates Panel -->
+        <div class="bottom-panel">
+          <h3>📜 عنوان گواهینامه ها یا سایر مدارک صلاحیت اخذ شده</h3>
+          
+          <div class="toolbar" data-target="certBox">
+            <span class="toolbar-title-tag">📜 گواهینامه‌ها</span>
+            <div class="toolbar-group">
+              <select class="font-name-select" onchange="applyFont(this.value)">
+                <option value="'Vazirmatn', sans-serif">وزیرمتن</option>
+                <option value="'Shabnam', sans-serif">شبنم</option>
+                <option value="'Sahel', sans-serif">ساحل</option>
+                <option value="'Samim', sans-serif">صمیم</option>
+                <option value="'IranNastaliq', cursive">نستعلیق</option>
+                <option value="'Tahoma', sans-serif">تاهوما</option>
+              </select>
+              <select class="font-size-select" onchange="applyCustomFontSize(this.value)"></select>
+            </div>
+            <div class="toolbar-group">
+              <input type="color" onchange="applyTextColor(this.value)" value="#1e293b" title="رنگ قلم">
+            </div>
+            <div class="toolbar-group">
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('bold')"><b>B</b></button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('italic')"><i>I</i></button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('underline')"><u>U</u></button>
+            </div>
+            <div class="toolbar-group">
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyRight')">➡️</button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyCenter')">↔️</button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyLeft')">⬅️</button>
+            </div>
+            <div class="toolbar-group">
+              <select class="bullet-selector" onchange="applyBulletType(this.value); this.value='';" title="۱۵ نوع بالت">
+                <option value="" disabled selected>📋 ۱۵ بالت...</option>
+                <option value="num-fa">۱. عدد فارسی</option>
+                <option value="num-en">2. عدد انگلیسی</option>
+                <option value="alpha-fa">۳. الفبای فارسی</option>
+                <option value="alpha-en-lower">4. انگلیسی کوچک</option>
+                <option value="alpha-en-upper">5. انگلیسی بزرگ</option>
+                <option value="roman-upper">6. اعداد رومی</option>
+                <option value="circled-num">۷. اعداد دایره‌ای</option>
+                <option value="shape-disc">۸. دایره پر (•)</option>
+                <option value="shape-circle">۹. دایره خالی (○)</option>
+                <option value="shape-square">۱۰. مربع پر (■)</option>
+                <option value="shape-diamond">۱۱. الماس (◆)</option>
+                <option value="shape-check">۱۲. تیک تایید (✓)</option>
+                <option value="shape-arrow">۱۳. پیکان (➔)</option>
+                <option value="shape-star">۱۴. ستاره (★)</option>
+                <option value="shape-floret">۱۵. گلبرگ (❖)</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="certBox" class="editor-box" style="min-height: 120px;" contenteditable="false">
+            • دارنده گواهینامه مدیریت کیفیت ISO 9001:2015
+          </div>
+        </div>
+
+        <!-- Contact Info Panel -->
+        <div class="bottom-panel">
+          <h3>🏢 نحوه تماس دفتر مرکزی شرکت</h3>
+          
+          <div class="toolbar" data-target="contactPanel">
+            <span class="toolbar-title-tag">🏢 کادرهای تماس</span>
+            <div class="toolbar-group">
+              <select class="font-name-select" onchange="applyFont(this.value)">
+                <option value="'Vazirmatn', sans-serif">وزیرمتن</option>
+                <option value="'Shabnam', sans-serif">شبنم</option>
+                <option value="'Tahoma', sans-serif">تاهوما</option>
+                <option value="'Arial', sans-serif">آریال</option>
+              </select>
+              <select class="font-size-select" onchange="applyCustomFontSize(this.value)"></select>
+            </div>
+            <div class="toolbar-group">
+              <input type="color" onchange="applyTextColor(this.value)" value="#1e293b" title="رنگ قلم">
+            </div>
+            <div class="toolbar-group">
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('bold')"><b>B</b></button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('italic')"><i>I</i></button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('underline')"><u>U</u></button>
+            </div>
+            <div class="toolbar-group">
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyRight')">➡️</button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyCenter')">↔️</button>
+              <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyLeft')">⬅️</button>
+            </div>
+            <div class="toolbar-group">
+              <select class="bullet-selector" onchange="applyBulletType(this.value); this.value='';" title="۱۵ نوع بالت">
+                <option value="" disabled selected>📋 ۱۵ بالت...</option>
+                <option value="num-fa">۱. عدد فارسی</option>
+                <option value="num-en">2. عدد انگلیسی</option>
+                <option value="alpha-fa">۳. الفبای فارسی</option>
+                <option value="alpha-en-lower">4. انگلیسی کوچک</option>
+                <option value="alpha-en-upper">5. انگلیسی بزرگ</option>
+                <option value="roman-upper">6. اعداد رومی</option>
+                <option value="circled-num">۷. اعداد دایره‌ای</option>
+                <option value="shape-disc">۸. دایره پر (•)</option>
+                <option value="shape-circle">۹. دایره خالی (○)</option>
+                <option value="shape-square">۱۰. مربع پر (■)</option>
+                <option value="shape-diamond">۱۱. الماس (◆)</option>
+                <option value="shape-check">۱۲. تیک تایید (✓)</option>
+                <option value="shape-arrow">۱۳. پیکان (➔)</option>
+                <option value="shape-star">۱۴. ستاره (★)</option>
+                <option value="shape-floret">۱۵. گلبرگ (❖)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <div class="form-field">
+              <label>📞 تلفن:</label>
+              <div id="contactPhone" class="editor-box" contenteditable="false">021-88888888</div>
+            </div>
+            
+            <div class="form-field">
+              <label>📠 فکس:</label>
+              <div id="contactFax" class="editor-box rich-textbox" style="min-height: 44px; padding: 8px 12px;" contenteditable="false">021-88888889</div>
+            </div>
+
+            <div class="form-field">
+              <label>✉️ پست الکترونیک (Email):</label>
+              <div id="contactEmail" class="editor-box" contenteditable="false" dir="ltr">info@company.com</div>
+            </div>
+            <div class="form-field">
+              <label>📍 آدرس جغرافیایی:</label>
+              <div id="contactAddress" class="editor-box" contenteditable="false">تهران، خیابان ولیعصر، برج شرکت</div>
+            </div>
+            <div class="form-field">
+              <label>🌐 وبسایت:</label>
+              <div id="contactWebsite" class="editor-box" contenteditable="false" dir="ltr">www.company.com</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Smart Floating Format Toolbar -->
+  <div id="floatingFormatToolbar" class="floating-format-toolbar">
+    <span class="floating-active-badge" id="floatingActiveBadge">کادر فعال</span>
+    
+    <select class="font-name-select" onchange="applyFont(this.value)">
+      <option value="'Vazirmatn', sans-serif">وزیرمتن</option>
+      <option value="'Shabnam', sans-serif">شبنم</option>
+      <option value="'Sahel', sans-serif">ساحل</option>
+      <option value="'Samim', sans-serif">صمیم</option>
+      <option value="'Tanha', sans-serif">تنها</option>
+      <option value="'IranNastaliq', cursive">نستعلیق</option>
+      <option value="'Tahoma', sans-serif">تاهوما</option>
+      <option value="'Arial', sans-serif">آریال</option>
+    </select>
+
+    <select class="font-size-select" onchange="applyCustomFontSize(this.value)"></select>
+
+    <input type="color" onchange="applyTextColor(this.value)" value="#1e293b" title="رنگ قلم">
+
+    <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('bold')"><b>B</b></button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('italic')"><i>I</i></button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('underline')"><u>U</u></button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('strikeThrough')"><s>S</s></button>
+
+    <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyRight')">➡️</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyCenter')">↔️</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="applyFormat('justifyLeft')">⬅️</button>
+
+    <select class="bullet-selector" onchange="applyBulletType(this.value); this.value='';" title="۱۵ نوع بالت">
+      <option value="" disabled selected>📋 بالت‌ها...</option>
+      <option value="num-fa">۱. عدد فارسی</option>
+      <option value="num-en">2. عدد انگلیسی</option>
+      <option value="alpha-fa">۳. الفبای فارسی</option>
+      <option value="alpha-en-lower">4. انگلیسی کوچک</option>
+      <option value="alpha-en-upper">5. انگلیسی بزرگ</option>
+      <option value="roman-upper">6. اعداد رومی</option>
+      <option value="circled-num">۷. اعداد دایره‌ای</option>
+      <option value="shape-disc">۸. دایره پر (•)</option>
+      <option value="shape-circle">۹. دایره خالی (○)</option>
+      <option value="shape-square">۱۰. مربع پر (■)</option>
+      <option value="shape-diamond">۱۱. الماس (◆)</option>
+      <option value="shape-check">۱۲. تیک تایید (✓)</option>
+      <option value="shape-arrow">۱۳. پیکان (➔)</option>
+      <option value="shape-star">۱۴. ستاره (★)</option>
+      <option value="shape-floret">۱۵. گلبرگ (❖)</option>
+    </select>
+
+    <button type="button" id="floatingLangBtn" onclick="toggleTypingLanguage()" title="تغییر وضعیت زبان تایپ اعداد" style="font-weight: 800; color: #38bdf8;">
+      🌐 <span id="floatingLangLabel">فا (۱۲۳)</span>
+    </button>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal-backdrop" id="registerModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>نام‌نویسی</h2>
+        <button class="btn-close-modal" onclick="closeAuthModals()">✕</button>
+      </div>
+      <form class="auth-form" onsubmit="handleRegister(event)" autocomplete="off">
+        <div class="form-field">
+          <label>نام و نام خانوادگی:</label>
+          <input type="text" id="regFullName" class="editor-box" required>
+        </div>
+        <div class="form-field" style="margin-top:8px;">
+          <label>پست الکترونیک :</label>
+          <input type="text" id="regEmail" class="editor-box" dir="ltr" required>
+        </div>
+        <div class="form-field" style="margin-top:8px;">
+          <label>رمز عبور:</label>
+          <input type="password" id="regPassword" class="editor-box" required>
+        </div>
+        <div class="form-field" style="margin-top:8px;">
+          <label>تکرار رمز عبور:</label>
+          <input type="password" id="regConfirmPassword" class="editor-box" required>
+        </div>
+        <button type="submit" class="btn-action btn-save-inline" style="width:100%; margin-top:14px;">تکمیل ثبت‌نام و ورود</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="loginModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>ورود به حساب کاربری</h2>
+        <button class="btn-close-modal" onclick="closeAuthModals()">✕</button>
+      </div>
+      <form class="auth-form" onsubmit="handleLogin(event)" autocomplete="off">
+        <div class="form-field">
+          <label>پست الکترونیک:</label>
+          <input type="text" id="loginEmail" class="editor-box" dir="ltr" required>
+        </div>
+        <div class="form-field" style="margin-top:8px;">
+          <label>رمز عبور:</label>
+          <input type="password" id="loginPassword" class="editor-box" required>
+        </div>
+        <button type="submit" class="btn-action btn-save-inline" style="width:100%; margin-top:14px; background:linear-gradient(135deg,#6366f1,#4f46e5);">ورود به سامانه</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Smart Equipment Tree Search Modal -->
+  <div class="modal-backdrop" id="searchModal">
+    <div class="modal-card search-modal-card">
+      <div class="modal-header">
+        <h2>🌳 درخت اطلاعات تجهیز و نتایج جستجو</h2>
+        <button class="btn-close-modal" onclick="closeSearchModal()">✕</button>
+      </div>
+      <div id="treeVisualContainer" class="tree-visual-container"></div>
+      <div style="margin-top: 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <span id="searchStatsLabel" style="font-size:0.85rem; color:#94a3b8;">روی هر برگ کلیک کنید تا مستقیم به صفحه مربوطه منتقل شوید.</span>
+        <button class="btn-table-cmd" style="background:#334155;" onclick="closeSearchModal()">بستن پنجره</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TOTAL_PAGES = 95;
+    const REQUIRED_DOMAIN = 'frynd';
+    let currentPage = 1;
+    let pagesData = {};
+    let activeTableCell = null;
+
+    let savedRange = null;
+    let lastActiveEditable = null;
+
+    /* -------------------------------------------------------------------------
+       Smart Typing Language & Number Normalization Engine
+       ------------------------------------------------------------------------- */
+    let currentTypingLanguage = 'fa'; // 'fa' (Persian) or 'en' (English)
+    const faDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    const faEnMap = {
+      '۰': '0', '۱': '1', '۲': '2', '۳': '3', '۴': '4',
+      '۵': '5', '۶': '6', '۷': '7', '۸': '8', '۹': '9',
+      '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4',
+      '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9'
+    };
+
+    function toFaDigit(str) {
+      if (!str) return '';
+      return str.toString().replace(/[0-9]/g, d => faDigits[parseInt(d, 10)]);
+    }
+
+    function toEnDigit(str) {
+      if (!str) return '';
+      return str.toString().replace(/[۰-۹٠-٩]/g, d => faEnMap[d] || d);
+    }
+
+    function setTypingLanguage(lang) {
+      currentTypingLanguage = (lang === 'en') ? 'en' : 'fa';
+      updateLangIndicators();
+    }
+
+    function toggleTypingLanguage() {
+      currentTypingLanguage = (currentTypingLanguage === 'fa') ? 'en' : 'fa';
+      updateLangIndicators();
+    }
+
+    function updateLangIndicators() {
+      const isFa = (currentTypingLanguage === 'fa');
+      const label = isFa ? 'فارسی (۱۲۳)' : 'English (123)';
+      const shortLabel = isFa ? 'فا (۱۲۳)' : 'EN (123)';
+      const color = isFa ? '#38bdf8' : '#10b981';
+
+      const mainLbl = document.getElementById('currentLangLabel');
+      if (mainLbl) {
+        mainLbl.textContent = label;
+        mainLbl.style.color = color;
+      }
+      const floatLbl = document.getElementById('floatingLangLabel');
+      if (floatLbl) {
+        floatLbl.textContent = shortLabel;
+        floatLbl.style.color = color;
+      }
+    }
+
+    function detectContextLanguage(target) {
+      if (!target) return currentTypingLanguage;
+
+      // 1. If password field, leave untouched
+      if (target.type === 'password') return null;
+
+      // 2. Specific English fields
+      if (target.id === 'contactEmail' || target.id === 'contactWebsite' ||
+          target.id === 'regEmail' || target.id === 'loginEmail' ||
+          (target.getAttribute && target.getAttribute('dir') === 'ltr')) {
+        return 'en';
+      }
+
+      // 3. Inspect the nearest character before cursor
+      let textBeforeCursor = '';
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+        const pos = target.selectionStart || 0;
+        textBeforeCursor = (target.value || '').slice(0, pos);
+      } else if (target.isContentEditable) {
+        const sel = window.getSelection();
+        if (sel && sel.rangeCount > 0) {
+          const range = sel.getRangeAt(0);
+          const preCaretRange = range.cloneRange();
+          const container = (range.startContainer.nodeType === 3) 
+            ? range.startContainer.parentNode 
+            : range.startContainer;
+          if (container) {
+            preCaretRange.selectNodeContents(container);
+            preCaretRange.setEnd(range.startContainer, range.startOffset);
+            textBeforeCursor = preCaretRange.toString();
+          }
+        }
+      }
+
+      if (textBeforeCursor) {
+        for (let i = textBeforeCursor.length - 1; i >= 0; i--) {
+          const ch = textBeforeCursor[i];
+          if (/[\u0600-\u06FF]/.test(ch) && !/[۰-۹0-9]/.test(ch)) {
+            return 'fa';
+          }
+          if (/[a-zA-Z]/.test(ch)) {
+            return 'en';
+          }
+        }
+      }
+
+      return currentTypingLanguage;
+    }
+
+    function bindSmartNumberInputHandler() {
+      // Listen to keyboard layout changes or letter typing
+      document.addEventListener('keydown', (e) => {
+        // Alt + Shift toggle
+        if (e.altKey && e.shiftKey) {
+          toggleTypingLanguage();
+          return;
+        }
+
+        // Detect language based on typed letter
+        if (e.key && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+          if (/[\u0600-\u06FF]/.test(e.key) && !/[۰-۹0-9]/.test(e.key)) {
+            if (currentTypingLanguage !== 'fa') {
+              currentTypingLanguage = 'fa';
+              updateLangIndicators();
+            }
+          } else if (/[a-zA-Z]/.test(e.key)) {
+            if (currentTypingLanguage !== 'en') {
+              currentTypingLanguage = 'en';
+              updateLangIndicators();
+            }
+          }
+        }
+      });
+
+      // Intercept and format digits on typing
+      document.addEventListener('beforeinput', (e) => {
+        const target = e.target;
+        if (!target) return;
+        if (target.type === 'password') return;
+
+        if (e.data && /[0-9۰-۹٠-٩]/.test(e.data)) {
+          const activeLang = detectContextLanguage(target);
+          if (!activeLang) return;
+
+          const converted = (activeLang === 'en') ? toEnDigit(e.data) : toFaDigit(e.data);
+
+          if (converted !== e.data) {
+            e.preventDefault();
+            if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+              const start = target.selectionStart || 0;
+              const end = target.selectionEnd || 0;
+              const val = target.value || '';
+              target.value = val.slice(0, start) + converted + val.slice(end);
+              target.selectionStart = target.selectionEnd = start + converted.length;
+              target.dispatchEvent(new Event('input', { bubbles: true }));
+            } else if (target.isContentEditable) {
+              document.execCommand('insertText', false, converted);
+            }
+          }
+        }
+      });
+    }
+
+    // 15 Distinct Bullet Styles Definitions
+    const BULLET_MAP = {
+      'num-fa': ['۱. ', '۲. ', '۳. ', '۴. ', '۵. ', '۶. ', '۷. ', '۸. ', '۹. ', '۱۰. '],
+      'num-en': ['1. ', '2. ', '3. ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. '],
+      'alpha-fa': ['الف) ', 'ب) ', 'ج) ', 'د) ', 'هـ) ', 'و) ', 'ز) ', 'ح) ', 'ط) ', 'ی) '],
+      'alpha-en-lower': ['a. ', 'b. ', 'c. ', 'd. ', 'e. ', 'f. ', 'g. ', 'h. ', 'i. ', 'j. '],
+      'alpha-en-upper': ['A. ', 'B. ', 'C. ', 'D. ', 'E. ', 'F. ', 'G. ', 'H. ', 'I. ', 'J. '],
+      'roman-upper': ['I. ', 'II. ', 'III. ', 'IV. ', 'V. ', 'VI. ', 'VII. ', 'VIII. ', 'IX. ', 'X. '],
+      'circled-num': ['① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ', '⑦ ', '⑧ ', '⑨ ', '⑩ '],
+      'shape-disc': '• ',
+      'shape-circle': '○ ',
+      'shape-square': '■ ',
+      'shape-diamond': '◆ ',
+      'shape-check': '✓ ',
+      'shape-arrow': '➔ ',
+      'shape-star': '★ ',
+      'shape-floret': '❖ '
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initAllFontSizeDropdowns();
+      loadPagesDataFromState();
+      checkAuthStatus();
+      renderPage(currentPage);
+      bindTableCellListeners();
+      bindSmartPasteHandler();
+      bindEditableFocusListeners();
+      bindSmartNumberInputHandler();
+      updateLangIndicators();
+    });
+
+    /* -------------------------------------------------------------------------
+       Selection Tracking & Universal Formatting Functions
+       ------------------------------------------------------------------------- */
+    function saveSelection() {
+      const sel = window.getSelection();
+      if (sel && sel.rangeCount > 0) {
+        savedRange = sel.getRangeAt(0);
+      }
+    }
+
+    function restoreSelection() {
+      if (savedRange) {
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(savedRange);
+      }
+    }
+
+    function bindEditableFocusListeners() {
+      document.addEventListener('focusin', (e) => {
+        const editable = e.target.closest('[contenteditable="true"], .rich-textbox, .editor-box');
+        if (editable && getCurrentSession()) {
+          lastActiveEditable = editable;
+          saveSelection();
+          showFloatingToolbar(editable);
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        if (lastActiveEditable && getCurrentSession()) {
+          saveSelection();
+        }
+      });
+
+      document.addEventListener('keyup', () => {
+        if (lastActiveEditable && getCurrentSession()) {
+          saveSelection();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        const editable = e.target.closest('[contenteditable="true"], .rich-textbox, .editor-box');
+        const toolbar = e.target.closest('.toolbar, .floating-format-toolbar');
+        if (!editable && !toolbar) {
+          hideFloatingToolbar();
+        }
+      });
+    }
+
+    function showFloatingToolbar(el) {
+      const ft = document.getElementById('floatingFormatToolbar');
+      const badge = document.getElementById('floatingActiveBadge');
+      if (!ft) return;
+
+      let name = 'متن';
+      if (el.id === 'mainRichEditor') name = 'ویرایشگر اصلی';
+      else if (el.id === 'certBox') name = 'گواهینامه‌ها';
+      else if (el.id === 'contactPhone') name = 'تلفن';
+      else if (el.id === 'contactFax') name = 'فکس';
+      else if (el.id === 'contactEmail') name = 'ایمیل';
+      else if (el.id === 'contactAddress') name = 'آدرس';
+      else if (el.id === 'contactWebsite') name = 'وبسایت';
+      else if (el.tagName === 'TD' || el.tagName === 'TH') name = 'سلول جدول';
+
+      if (badge) badge.textContent = `🎯 ${name}`;
+      ft.classList.add('visible');
+    }
+
+    function hideFloatingToolbar() {
+      const ft = document.getElementById('floatingFormatToolbar');
+      if (ft) ft.classList.remove('visible');
+    }
+
+    function ensureEditableFocus() {
+      if (!getCurrentSession()) { openLoginModal(); return false; }
+      if (!lastActiveEditable) {
+        lastActiveEditable = document.getElementById('mainRichEditor');
+      }
+      if (lastActiveEditable) {
+        lastActiveEditable.focus();
+        restoreSelection();
+      }
+      return true;
+    }
+
+    function applyFormat(command, value = null) {
+      if (!ensureEditableFocus()) return;
+      document.execCommand(command, false, value);
+      saveCurrentPageData();
+    }
+
+    function applyFont(fontFamily) {
+      if (!ensureEditableFocus()) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) {
+        document.execCommand('fontName', false, fontFamily);
+      } else if (lastActiveEditable) {
+        lastActiveEditable.style.fontFamily = fontFamily;
+      }
+      saveCurrentPageData();
+    }
+
+    function applyCustomFontSize(sizePx) {
+      if (!ensureEditableFocus()) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) {
+        document.execCommand('fontSize', false, "7");
+        const fontElements = document.getElementsByTagName("font");
+        for (let i = 0; i < fontElements.length; i++) {
+          if (fontElements[i].getAttribute('size') === "7") {
+            fontElements[i].removeAttribute("size");
+            fontElements[i].style.fontSize = sizePx + "px";
+          }
+        }
+      } else if (lastActiveEditable) {
+        lastActiveEditable.style.fontSize = sizePx + "px";
+      }
+      saveCurrentPageData();
+    }
+
+    function applyTextColor(color) {
+      if (!ensureEditableFocus()) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) {
+        document.execCommand('foreColor', false, color);
+      } else if (lastActiveEditable) {
+        lastActiveEditable.style.color = color;
+      }
+      saveCurrentPageData();
+    }
+
+    function applyBulletType(bulletKey) {
+      if (!ensureEditableFocus()) return;
+      const bulletData = BULLET_MAP[bulletKey];
+      if (!bulletData) return;
+
+      const currentSel = window.getSelection();
+      if (currentSel && currentSel.rangeCount > 0) {
+        const range = currentSel.getRangeAt(0);
+        const selectedText = range.toString();
+
+        if (selectedText.trim().length > 0) {
+          const lines = selectedText.split(/\r?\n/);
+          const bulletedLines = lines.map((line, idx) => {
+            let prefix = Array.isArray(bulletData)
+              ? (bulletData[idx] || `${idx + 1}. `)
+              : bulletData;
+            const cleanedLine = line.replace(/^([•○■◆✓➔★❖]|\d+[\.\)]|[a-zA-Z][\.\)]|[①-⑩]|[الف-ی][\.\)])\s*/, '');
+            return prefix + cleanedLine;
+          });
+          document.execCommand('insertHTML', false, bulletedLines.join('<br>'));
+        } else {
+          let prefix = Array.isArray(bulletData) ? bulletData[0] : bulletData;
+          document.execCommand('insertHTML', false, prefix + '&nbsp;');
+        }
+      }
+      saveCurrentPageData();
+    }
+
+    function initAllFontSizeDropdowns() {
+      const dropdowns = document.querySelectorAll('.font-size-select');
+      const standardSizes = [8, 9, 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 28, 32, 36, 42, 48, 56, 72];
+      
+      dropdowns.forEach(select => {
+        select.innerHTML = '';
+        standardSizes.forEach(size => {
+          const opt = document.createElement('option');
+          opt.value = size;
+          opt.textContent = `${toPersianDigits(size)} px`;
+          if (size === 14) opt.selected = true;
+          select.appendChild(opt);
+        });
+      });
+    }
+
+    /* -------------------------------------------------------------------------
+       Smart Clipboard Paste Handler (Word / Clean Paste)
+       ------------------------------------------------------------------------- */
+    function bindSmartPasteHandler() {
+      document.addEventListener('paste', (e) => {
+        const target = e.target.closest('[contenteditable="true"], .rich-textbox, .editor-box');
+        if (!target) return;
+
+        e.preventDefault();
+        const clipboardData = e.clipboardData || window.clipboardData;
+        const html = clipboardData.getData('text/html');
+        const text = clipboardData.getData('text/plain');
+
+        if (html) {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+
+          const allEls = doc.body.querySelectorAll('*');
+          allEls.forEach(el => {
+            el.removeAttribute('width');
+            el.removeAttribute('height');
+
+            if (el.style) {
+              el.style.width = '';
+              el.style.minWidth = '';
+              el.style.maxWidth = '100%';
+              el.style.whiteSpace = 'normal';
+              el.style.wordBreak = 'break-word';
+              el.style.overflowWrap = 'anywhere';
+              el.style.marginRight = '0';
+              el.style.marginLeft = '0';
+            }
+
+            if (el.className && typeof el.className === 'string' && el.className.includes('Mso')) {
+              el.className = '';
+            }
+          });
+
+          const cleanHtml = doc.body.innerHTML;
+          document.execCommand('insertHTML', false, cleanHtml);
+        } else if (text) {
+          document.execCommand('insertText', false, text);
+        }
+
+        saveCurrentPageData();
+      });
+    }
+
+    function toPersianDigits(str) {
+      if (str === null || str === undefined) return '';
+      return str.toString().replace(/[0-9]/g, w => faDigits[parseInt(w, 10)]);
+    }
+
+    function parseDigitString(str) {
+      if (!str) return NaN;
+      const normalized = str.toString().replace(/[۰-۹٠-٩]/g, d => faEnMap[d] || d);
+      return parseInt(normalized, 10);
+    }
+
+    function goToEnteredPage() {
+      const input = document.getElementById('pageNumberInput');
+      if (!input) return;
+      const page = parseDigitString(input.value.trim());
+      if (isNaN(page) || page < 1 || page > TOTAL_PAGES) {
+        alert(`لطفاً شماره صفحه‌ای معتبر بین ۱ تا ${toPersianDigits(TOTAL_PAGES)} وارد نمایید.`);
+        input.value = toPersianDigits(currentPage);
+        return;
+      }
+      if (getCurrentSession()) saveCurrentPageData();
+      currentPage = page;
+      renderPage(currentPage);
+    }
+
+    function bindTableCellListeners() {
+      document.addEventListener('click', (e) => {
+        const cell = e.target.closest('#industrialTable td, #industrialTable th');
+        if (cell) {
+          document.querySelectorAll('#industrialTable td, #industrialTable th').forEach(c => c.style.outline = '');
+          activeTableCell = cell;
+          activeTableCell.style.outline = '2px solid #6366f1';
+          lastActiveEditable = cell;
+          showFloatingToolbar(cell);
+        }
+      });
+    }
+
+    function clearTableContent() {
+      if (!getCurrentSession()) { openLoginModal(); return; }
+      const table = document.getElementById('industrialTable');
+      if (confirm('آیا از پاک‌سازی محتوای جدول مطمئن هستید؟')) {
+        table.querySelectorAll('th, td').forEach(c => c.textContent = '');
+        saveCurrentPageData();
+      }
+    }
+
+    function deleteTable() {
+      if (!getCurrentSession()) { openLoginModal(); return; }
+      const cont = document.querySelector('.resizable-table-container');
+      if (confirm('آیا مایل به حذف کل جدول هستید؟')) {
+        cont.innerHTML = '';
+        saveCurrentPageData();
+      }
+    }
+
+    function createNewTable() {
+      if (!getCurrentSession()) { openLoginModal(); return; }
+      const rows = parseInt(prompt('تعداد سطر:', '3'), 10);
+      const cols = parseInt(prompt('تعداد ستون:', '3'), 10);
+      if (!rows || !cols) return;
+      const cont = document.querySelector('.resizable-table-container');
+      let html = '<table class="custom-table tbl-theme-classic" id="industrialTable"><thead><tr>';
+      for (let c = 1; c <= cols; c++) html += `<th contenteditable="true">ستون ${toPersianDigits(c)}</th>`;
+      html += '</tr></thead><tbody>';
+      for (let r = 1; r <= rows; r++) {
+        html += '<tr>';
+        for (let c = 1; c <= cols; c++) html += `<td contenteditable="true">داده ${toPersianDigits(r)}-${toPersianDigits(c)}</td>`;
+        html += '</tr>';
+      }
+      html += '</tbody></table>';
+      cont.innerHTML = html;
+      saveCurrentPageData();
+    }
+
+    function loadPagesDataFromState() {
+      try {
+        const saved = localStorage.getItem('frynd_pages_data');
+        if (saved) pagesData = JSON.parse(saved);
+      } catch (e) {
+        pagesData = {};
+      }
+    }
+
+    function saveCurrentPageData() {
+      const tableContainer = document.querySelector('.resizable-table-container');
+      const previewContainer = document.getElementById('imagePreviewContainer');
+      const images = [];
+      if (previewContainer) {
+        previewContainer.querySelectorAll('img').forEach(img => images.push(img.src));
+      }
+
+      pagesData[currentPage] = {
+        design: document.getElementById('pageDesignSelect').value || 'design-1',
+        editorHtml: document.getElementById('mainRichEditor').innerHTML,
+        certHtml: document.getElementById('certBox').innerHTML,
+        contactPhone: document.getElementById('contactPhone').innerHTML,
+        contactFax: document.getElementById('contactFax') ? document.getElementById('contactFax').innerHTML : '',
+        contactEmail: document.getElementById('contactEmail') ? document.getElementById('contactEmail').innerHTML : '',
+        contactAddress: document.getElementById('contactAddress') ? document.getElementById('contactAddress').innerHTML : '',
+        contactWebsite: document.getElementById('contactWebsite').innerHTML,
+        images: images,
+        tableHtml: tableContainer ? tableContainer.innerHTML : ''
+      };
+
+      localStorage.setItem('frynd_pages_data', JSON.stringify(pagesData));
+    }
+
+    function navigatePage(delta) {
+      if (getCurrentSession()) saveCurrentPageData();
+      const targetPage = currentPage + delta;
+      if (targetPage >= 1 && targetPage <= TOTAL_PAGES) {
+        currentPage = targetPage;
+        renderPage(currentPage);
+      }
+    }
+
+    function renderPage(pageNumber) {
+      const pageInput = document.getElementById('pageNumberInput');
+      if (pageInput) pageInput.value = toPersianDigits(pageNumber);
+      const pageTotal = document.getElementById('pageTotalDisplay');
+      if (pageTotal) pageTotal.textContent = toPersianDigits(TOTAL_PAGES);
+      
+      document.getElementById('headerPageNum').textContent = `صفحه ${toPersianDigits(pageNumber)}`;
+      document.getElementById('prevBtn').disabled = (pageNumber === 1);
+      document.getElementById('nextBtn').disabled = (pageNumber === TOTAL_PAGES);
+
+      const pageData = pagesData[pageNumber] || {
+        design: 'design-1',
+        editorHtml: `<h3>شرکت سازنده شماره ${toPersianDigits(pageNumber)}</h3><p>طراح و تولیدکننده تجهیزات صنعتی پیشرفته و خطوط تولید...</p>`,
+        certHtml: '• دارنده گواهینامه مدیریت کیفیت ISO 9001:2015',
+        contactPhone: '021-88888888',
+        contactFax: '021-88888889',
+        contactEmail: 'info@company.com',
+        contactAddress: 'تهران، خیابان ولیعصر، برج شرکت',
+        contactWebsite: 'www.company.com',
+        images: [],
+        tableHtml: `<table class="custom-table tbl-theme-classic" id="industrialTable"><thead><tr><th>عنوان تجهیز</th><th>استاندارد</th><th>صنایع</th></tr></thead><tbody><tr><td>تجهیز نمونه صنعتی</td><td>استاندارد نمونه</td><td>صنایع نفت و گاز</td></tr></tbody></table>`
+      };
+
+      document.getElementById('mainRichEditor').innerHTML = pageData.editorHtml;
+      document.getElementById('certBox').innerHTML = pageData.certHtml;
+      document.getElementById('contactPhone').innerHTML = pageData.contactPhone || '';
+      if (document.getElementById('contactFax')) document.getElementById('contactFax').innerHTML = pageData.contactFax || '';
+      document.getElementById('contactEmail').innerHTML = pageData.contactEmail || '';
+      document.getElementById('contactAddress').innerHTML = pageData.contactAddress || '';
+      document.getElementById('contactWebsite').innerHTML = pageData.contactWebsite || '';
+
+      const previewContainer = document.getElementById('imagePreviewContainer');
+      previewContainer.innerHTML = '';
+      if (pageData.images) {
+        pageData.images.forEach(src => previewContainer.appendChild(createImageWrapper(src)));
+      }
+
+      const tableContainer = document.querySelector('.resizable-table-container');
+      tableContainer.innerHTML = pageData.tableHtml;
+
+      handlePageDesignChange(pageData.design || 'design-1');
+      checkAuthStatus();
+    }
+
+    function handlePageDesignChange(designClass) {
+      const container = document.getElementById('mainBookContainer');
+      container.className = `book-container ${designClass}`;
+      document.getElementById('pageDesignSelect').value = designClass;
+    }
+
+    function handleImageUpload(e) {
+      if (!getCurrentSession()) { openLoginModal(); return; }
+      const files = e.target.files;
+      if (!files || !files[0]) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        document.getElementById('imagePreviewContainer').appendChild(createImageWrapper(evt.target.result));
+        saveCurrentPageData();
+      };
+      reader.readAsDataURL(files[0]);
+    }
+
+    function createImageWrapper(src) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'image-preview-wrapper';
+      wrapper.innerHTML = `<img src="${src}"><button class="remove-img-btn" onclick="this.parentElement.remove(); saveCurrentPageData();">✕</button>`;
+      return wrapper;
+    }
+
+    function getUsersDB() {
+      try { return JSON.parse(localStorage.getItem('frynd_app_users')) || []; } catch(e) { return []; }
+    }
+    function saveUsersDB(u) { localStorage.setItem('frynd_app_users', JSON.stringify(u)); }
+
+    function getCurrentSession() {
+      try { return JSON.parse(localStorage.getItem('frynd_active_user')) || null; } catch(e) { return null; }
+    }
+    function setCurrentSession(user) {
+      if (user) localStorage.setItem('frynd_active_user', JSON.stringify(user));
+      else localStorage.removeItem('frynd_active_user');
+      checkAuthStatus();
+    }
+
+    function checkAuthStatus() {
+      const activeUser = getCurrentSession();
+      const body = document.body;
+      const userBadge = document.getElementById('userBadge');
+      const userNameDisplay = document.getElementById('userNameDisplay');
+      const registerBtn = document.getElementById('registerBtn');
+      const loginBtn = document.getElementById('loginBtn');
+      const logoutBtn = document.getElementById('logoutBtn');
+
+      const isAuth = !!activeUser;
+      body.classList.toggle('read-only-locked', !isAuth);
+      userBadge.style.display = isAuth ? 'inline-flex' : 'none';
+      if (activeUser) userNameDisplay.textContent = activeUser.displayName || activeUser.email;
+      registerBtn.style.display = isAuth ? 'none' : 'inline-flex';
+      loginBtn.style.display = isAuth ? 'none' : 'inline-flex';
+      logoutBtn.style.display = isAuth ? 'inline-flex' : 'none';
+
+      const editables = document.querySelectorAll(
+        '#mainRichEditor, #certBox, #contactPhone, #contactFax, #contactEmail, #contactAddress, #contactWebsite, .resizable-table-container th, .resizable-table-container td'
+      );
+      editables.forEach(el => el.contentEditable = isAuth ? "true" : "false");
+    }
+
+    function openRegisterModal() { document.getElementById('registerModal').classList.add('active'); }
+    function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
+    function closeAuthModals() {
+      document.getElementById('registerModal').classList.remove('active');
+      document.getElementById('loginModal').classList.remove('active');
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('regFullName').value.trim();
+      const email = document.getElementById('regEmail').value.trim().toLowerCase();
+      const password = document.getElementById('regPassword').value;
+      const confirm = document.getElementById('regConfirmPassword').value;
+
+      if (!email.endsWith(`@${REQUIRED_DOMAIN}`)) {
+        alert('ایمیل حتماً باید دارای دامنه @frynd باشد.');
+        return;
+      }
+      if (password !== confirm) {
+        alert('رمزهای عبور همخوانی ندارند.');
+        return;
+      }
+
+      const users = getUsersDB();
+      if (users.some(u => u.email === email)) {
+        alert('این ایمیل قبلاً ثبت شده است.');
+        return;
+      }
+
+      const newUser = { displayName: fullName, email: email, password: password };
+      users.push(newUser);
+      saveUsersDB(users);
+      closeAuthModals();
+      setCurrentSession(newUser);
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      let email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const pass = document.getElementById('loginPassword').value;
+      if (!email.includes('@')) email += `@${REQUIRED_DOMAIN}`;
+
+      const users = getUsersDB();
+      const user = users.find(u => u.email === email && u.password === pass);
+      if (!user) {
+        alert('اطلاعات ورود نامعتبر است.');
+        return;
+      }
+      closeAuthModals();
+      setCurrentSession(user);
+    }
+
+    function handleLogout() {
+      if (confirm('آیا قصد خروج دارید؟')) {
+        saveCurrentPageData();
+        setCurrentSession(null);
+        hideFloatingToolbar();
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       Smart Equipment Tree Search Logic
+       ------------------------------------------------------------------------- */
+    function extractCompanyNameFromPage(pageData, pageNum) {
+      if (!pageData) return `شرکت سازنده (صفحه ${toPersianDigits(pageNum)})`;
+      if (pageData.editorHtml) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = pageData.editorHtml;
+        const heading = tempDiv.querySelector('h1, h2, h3, b, strong');
+        if (heading && heading.textContent.trim()) {
+          const t = heading.textContent.trim();
+          if (t.length <= 45) return t;
+        }
+        const firstLine = tempDiv.textContent.trim().split('\n')[0];
+        if (firstLine && firstLine.length > 2 && firstLine.length <= 45) {
+          return firstLine;
+        }
+      }
+      return `شرکت عضو شماره ${toPersianDigits(pageNum)}`;
+    }
+
+    function searchBookContent() {
+      const rawQ = document.getElementById('searchInput').value.trim();
+      if (!rawQ) {
+        alert('لطفاً عنوان تجهیز یا کلمه کلیدی را وارد نمایید.');
+        return;
+      }
+
+      const cleanQ = rawQ.toLowerCase();
+      const matchingCompanies = [];
+      const matchingPages = [];
+
+      for (let i = 1; i <= TOTAL_PAGES; i++) {
+        const p = pagesData[i] || (i === 1 ? {
+          editorHtml: '<h3>شرکت مهندسی ماشین‌سازی نمونه</h3><p>طراح و تولیدکننده تجهیزات صنعتی پیشرفته...</p>',
+          tableHtml: 'تجهیز نمونه صنعتی استاندارد نفت و گاز'
+        } : null);
+
+        if (p) {
+          const contentStr = JSON.stringify(p).toLowerCase();
+          if (contentStr.includes(cleanQ)) {
+            const compName = extractCompanyNameFromPage(p, i);
+            matchingCompanies.push({ name: compName, page: i });
+            matchingPages.push(i);
+          }
+        }
+      }
+
+      renderEquipmentTree(rawQ, matchingCompanies, matchingPages);
+      document.getElementById('searchModal').classList.add('active');
+    }
+
+    function renderEquipmentTree(equipmentName, companies, pages) {
+      const container = document.getElementById('treeVisualContainer');
+      const statsLabel = document.getElementById('searchStatsLabel');
+      
+      if (companies.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding: 60px 20px; color:#94a3b8;">
+            <div style="font-size:3.5rem; margin-bottom:12px;">🌱</div>
+            <h3 style="color:#f8fafc; margin-bottom:8px;">هیچ شرکتی با عنوان تجهیز «${equipmentName}» یافت نشد.</h3>
+            <p style="font-size:0.9rem;">لطفاً واژه کلیدی دیگری نظیر «تجهیز»، «مخزن»، «پمپ» یا «صنعتی» را امتحان فرمایید.</p>
+          </div>
+        `;
+        if (statsLabel) statsLabel.textContent = 'نتیجه‌ای یافت نشد.';
+        return;
+      }
+
+      if (statsLabel) {
+        statsLabel.textContent = `تعداد ${toPersianDigits(companies.length)} شرکت و صفحه مرتبط با «${equipmentName}» یافت شد. برای مشاهده صفحه روی برگ کلیک کنید.`;
+      }
+
+      const maxCount = Math.max(companies.length, pages.length);
+      const leafSpacing = 54;
+      const treeTopPadding = 80;
+      const baseHeight = Math.max(520, treeTopPadding + (maxCount * leafSpacing) + 140);
+      const svgWidth = 840;
+      const centerX = svgWidth / 2;
+      const trunkBaseY = baseHeight - 30;
+      const forkY = baseHeight - 140;
+
+      let leavesCompanySvg = '';
+      let leavesPagesSvg = '';
+
+      companies.forEach((comp, idx) => {
+        const yPos = forkY - 40 - (idx * leafSpacing);
+        const branchX = centerX + 110 + (Math.sin(idx * 0.4) * 20);
+        const leafX = centerX + 260;
+        const leafY = yPos;
+        
+        leavesCompanySvg += `
+          <path d="M ${branchX} ${yPos + 10} Q ${branchX + 50} ${leafY} ${leafX - 110} ${leafY}" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+          <g class="tree-leaf-node company-leaf" onclick="jumpToFoundPage(${comp.page})">
+            <title>مشاهده صفحه ${toPersianDigits(comp.page)}: ${comp.name}</title>
+            <path d="M ${leafX - 110} ${leafY} C ${leafX - 70} ${leafY - 24}, ${leafX + 80} ${leafY - 24}, ${leafX + 110} ${leafY} C ${leafX + 80} ${leafY + 24}, ${leafX - 70} ${leafY + 24}, ${leafX - 110} ${leafY} Z" 
+                  fill="url(#compLeafGrad)" stroke="#10b981" stroke-width="1.8" filter="url(#dropShadow)" />
+            <path d="M ${leafX - 100} ${leafY} L ${leafX + 90} ${leafY}" stroke="#6ee7b7" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.7"/>
+            <text x="${leafX}" y="${leafY + 5}" text-anchor="middle" class="tree-leaf-text" font-size="12">
+              🏢 ${truncateText(comp.name, 22)}
+            </text>
+          </g>
+        `;
+      });
+
+      pages.forEach((pg, idx) => {
+        const yPos = forkY - 40 - (idx * leafSpacing);
+        const branchX = centerX - 110 - (Math.sin(idx * 0.4) * 20);
+        const leafX = centerX - 260;
+        const leafY = yPos;
+
+        leavesPagesSvg += `
+          <path d="M ${branchX} ${yPos + 10} Q ${branchX - 50} ${leafY} ${leafX + 110} ${leafY}" fill="none" stroke="#0284c7" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+          <g class="tree-leaf-node" onclick="jumpToFoundPage(${pg})">
+            <title>انتقال به صفحه ${toPersianDigits(pg)}</title>
+            <path d="M ${leafX + 110} ${leafY} C ${leafX + 70} ${leafY - 24}, ${leafX - 80} ${leafY - 24}, ${leafX - 110} ${leafY} C ${leafX - 80} ${leafY + 24}, ${leafX + 70} ${leafY + 24}, ${leafX + 110} ${leafY} Z" 
+                  fill="url(#pageLeafGrad)" stroke="#38bdf8" stroke-width="1.8" filter="url(#dropShadow)" />
+            <path d="M ${leafX + 100} ${leafY} L ${leafX - 90} ${leafY}" stroke="#bae6fd" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.7"/>
+            <text x="${leafX}" y="${leafY + 5}" text-anchor="middle" class="tree-leaf-text" font-size="13">
+              📖 صفحه ${toPersianDigits(pg)}
+            </text>
+          </g>
+        `;
+      });
+
+      const topStemY = forkY - 50 - ((maxCount - 1) * leafSpacing);
+
+      const treeSvg = `
+        <svg class="tree-svg-root" viewBox="0 0 ${svgWidth} ${baseHeight}" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.6"/>
+            </filter>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <linearGradient id="trunkGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#451a03"/>
+              <stop offset="50%" stop-color="#78350f"/>
+              <stop offset="100%" stop-color="#451a03"/>
+            </linearGradient>
+            <linearGradient id="rightStemGrad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#78350f"/>
+              <stop offset="40%" stop-color="#047857"/>
+              <stop offset="100%" stop-color="#10b981"/>
+            </linearGradient>
+            <linearGradient id="leftStemGrad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#78350f"/>
+              <stop offset="40%" stop-color="#0369a1"/>
+              <stop offset="100%" stop-color="#38bdf8"/>
+            </linearGradient>
+            <linearGradient id="compLeafGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#064e3b"/>
+              <stop offset="50%" stop-color="#059669"/>
+              <stop offset="100%" stop-color="#10b981"/>
+            </linearGradient>
+            <linearGradient id="pageLeafGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1e1b4b"/>
+              <stop offset="50%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#38bdf8"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Roots & Base -->
+          <path d="M ${centerX - 90} ${trunkBaseY + 15} Q ${centerX - 40} ${trunkBaseY - 5} ${centerX} ${trunkBaseY - 10} Q ${centerX + 40} ${trunkBaseY - 5} ${centerX + 90} ${trunkBaseY + 15} Z" fill="#291205" />
+          
+          <!-- Trunk -->
+          <path d="M ${centerX - 36} ${trunkBaseY} 
+                   C ${centerX - 30} ${trunkBaseY - 50}, ${centerX - 28} ${forkY + 40}, ${centerX - 35} ${forkY}
+                   L ${centerX + 35} ${forkY}
+                   C ${centerX + 28} ${forkY + 40}, ${centerX + 30} ${trunkBaseY - 50}, ${centerX + 36} ${trunkBaseY} Z" 
+                fill="url(#trunkGrad)" stroke="#271003" stroke-width="2" filter="url(#dropShadow)" />
+
+          <!-- Left Stem (Pages) -->
+          <path d="M ${centerX - 10} ${forkY + 5} 
+                   Q ${centerX - 60} ${forkY - 60}, ${centerX - 120} ${(forkY + topStemY) / 2} 
+                   T ${centerX - 110} ${topStemY}" 
+                fill="none" stroke="url(#leftStemGrad)" stroke-width="14" stroke-linecap="round" filter="url(#dropShadow)" />
+
+          <!-- Right Stem (Companies) -->
+          <path d="M ${centerX + 10} ${forkY + 5} 
+                   Q ${centerX + 60} ${forkY - 60}, ${centerX + 120} ${(forkY + topStemY) / 2} 
+                   T ${centerX + 110} ${topStemY}" 
+                fill="none" stroke="url(#rightStemGrad)" stroke-width="14" stroke-linecap="round" filter="url(#dropShadow)" />
+
+          <!-- Stem Labels -->
+          <g transform="translate(${centerX - 240}, ${topStemY - 45})">
+            <rect x="0" y="0" width="220" height="34" rx="17" fill="rgba(15, 23, 42, 0.9)" stroke="#38bdf8" stroke-width="1.8" filter="url(#dropShadow)"/>
+            <text x="110" y="22" text-anchor="middle" fill="#38bdf8" class="tree-branch-label">📖 ساقه شماره صفحات مرتبط</text>
+          </g>
+
+          <g transform="translate(${centerX + 20}, ${topStemY - 45})">
+            <rect x="0" y="0" width="220" height="34" rx="17" fill="rgba(15, 23, 42, 0.9)" stroke="#10b981" stroke-width="1.8" filter="url(#dropShadow)"/>
+            <text x="110" y="22" text-anchor="middle" fill="#34d399" class="tree-branch-label">🏢 ساقه شرکت‌های دارنده تجهیز</text>
+          </g>
+
+          <!-- Leaves -->
+          ${leavesPagesSvg}
+          ${leavesCompanySvg}
+
+          <!-- Equipment Title Tag -->
+          <g transform="translate(${centerX - 170}, ${trunkBaseY - 26})">
+            <rect x="0" y="0" width="340" height="42" rx="21" fill="linear-gradient(135deg, #1e1b4b, #312e81)" stroke="#818cf8" stroke-width="2" filter="url(#glow)"/>
+            <text x="170" y="26" text-anchor="middle" fill="#ffffff" font-family="var(--font-family)" font-size="14" font-weight="800">
+              🌳 تجهیز جستجو شده: ${equipmentName}
+            </text>
+          </g>
+        </svg>
+      `;
+
+      container.innerHTML = treeSvg;
+    }
+
+    function truncateText(str, maxLength) {
+      if (!str) return '';
+      return str.length > maxLength ? str.substring(0, maxLength) + '...' : str;
+    }
+
+    function jumpToFoundPage(page) {
+      closeSearchModal();
+      currentPage = page;
+      renderPage(currentPage);
+    }
+
+    function closeSearchModal() {
+      document.getElementById('searchModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
